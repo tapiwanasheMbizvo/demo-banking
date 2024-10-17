@@ -1,9 +1,8 @@
 package com.tapiwanashe.mbizvo.banking.demo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Generated;
 
 import java.math.BigDecimal;
 
@@ -12,6 +11,7 @@ import java.math.BigDecimal;
 @Data
 public class BankAccount {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private  String accountNumber;
     private BigDecimal balance;
