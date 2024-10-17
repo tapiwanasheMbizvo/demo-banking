@@ -4,10 +4,14 @@ spring:
 
 
   datasource:
-    url: jdbc:postgresql://db:5432/demo
+    url: jdbc:postgresql://localhost:5454/demo
     username: demo
     password: demo
     jpa:
       hibernate:
         ddl-auto: update
       show-sql: true
+
+
+server:
+  port: 8081

@@ -3,25 +3,12 @@ services:
     image: postgres:15-alpine
     restart: always
     environment:
-      POSTGRES_DB: your_database_name
-      POSTGRES_USER: your_database_username
-      POSTGRES_PASSWORD: your_database_password
+      POSTGRES_DB: demo
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
     ports:
       - "5454:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
-
-  app:
-    build: .
-    restart: always
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/demo
-      SPRING_DATASOURCE_USERNAME: demo
-      SPRING_DATASOURCE_PASSWORD: demo
-
 volumes:
   db_data:
