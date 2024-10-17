@@ -7,8 +7,21 @@ services:
       POSTGRES_USER: demo
       POSTGRES_PASSWORD: demo
     ports:
-      - "5454:5432"
+      - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    restart: always
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/demo
+      SPRING_DATASOURCE_USERNAME: demo
+      SPRING_DATASOURCE_PASSWORD: demo
+
 volumes:
   db_data:
