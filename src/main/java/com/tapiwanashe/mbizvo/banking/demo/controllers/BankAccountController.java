@@ -29,13 +29,13 @@ public class BankAccountController {
         return  ResponseEntity.ok(bankAccountService.createBankAccount(account));
     }
 
-    @GetMapping("/id")
-    public  ResponseEntity<BankAccount> getOneBankAccount(@RequestParam Long id ){
+    @GetMapping("/{id}")
+    public  ResponseEntity<BankAccount> getOneBankAccount(@PathVariable Long id ){
         return  ResponseEntity.ok(bankAccountService.getOneAccount(id));
     }
 
-    @DeleteMapping("/id")
-    public  void deleteBankAccount(@RequestParam Long id ){
+    @DeleteMapping("/{id}")
+    public  void deleteBankAccount(@PathVariable Long id ){
           bankAccountService.delete(id);
     }
 
