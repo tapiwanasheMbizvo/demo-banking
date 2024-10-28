@@ -11,11 +11,7 @@ import java.time.LocalDateTime;
 @RestController
 @RequestMapping("/hello")
 public class HelloWorld {
-
-
-
     record  Greeting(String greeting , LocalDateTime time){}
-
     @GetMapping
     public ResponseEntity<Greeting> getGreeting(){
         var greeting = new Greeting("Hello there", LocalDateTime.now());
